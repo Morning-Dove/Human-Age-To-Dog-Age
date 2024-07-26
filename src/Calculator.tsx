@@ -1,29 +1,45 @@
 import React, { useState } from "react";
 import styles from "./Calculator.module.css";
 
-
 const Calculator: React.FC = () => {
+    // State variables for the input values
     let [name, setName] = useState("");
     let [humanAge, setHumanAge] = useState("");
+    
+    // State variables to store the parsed human age and submitted name
     let [humanAgeInt, setHumanAgeInt] = useState<number | undefined>();
     let [submittedName, setSubmittedName] = useState("");
 
+
+    /**
+    * Handles form submission
+    * @param {React.FormEvent<HTMLFormElement>} event - The form submission event
+    */
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        // Parse humanAge to an integer and set it to humanAgeInt state
         setHumanAgeInt(humanAge ? parseInt(humanAge) : undefined);
 
+        // Set the submitted name to the current name value
         setSubmittedName(name);
 
-        // Clears the input field after submitting
+        // Clear the input fields after submitting
         setName("");
         setHumanAge("");
     };
 
-    const handleHumanAge = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        setHumanAge(event.target.value)
-    }
 
-    const dogAge = humanAgeInt ? (16*Math.log(humanAgeInt + 31)).toFixed(0) : undefined;
+    /**
+    * Handles changes in the humanAge input field
+    * @param {React.ChangeEvent<HTMLInputElement>} event - The input change event
+    */
+    const handleHumanAge = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        setHumanAge(event.target.value);
+    };
+
+
+    // Calculate the dog's age based on the human age
+    const dogAge = humanAgeInt ? (16 * Math.log(humanAgeInt + 31)).toFixed(0) : undefined;
 
     return (
         <div className={styles.calculator}>
@@ -50,9 +66,10 @@ const Calculator: React.FC = () => {
                 </div>
                 <button type="submit">Submit</button>
             </form>
-            {humanAgeInt && dogAge !== undefined && (
+            {/* Display the calculated dog age if humanAgeInt and dogAge are not undefined */}
+            {humanAgeInt !== undefined && dogAge !== undefined && (
                 <div className="displayAge">
-                    <p>{submittedName ? submittedName : "This dog"} is {dogAge} years old! </p>
+                    <p>{submittedName ? submittedName : "This dog"} is {dogAge} years old!</p>
                 </div>
             )}
         </div>
