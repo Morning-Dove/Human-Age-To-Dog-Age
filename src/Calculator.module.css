@@ -1,0 +1,55 @@
+.calculator {
+    background-color: rgb(246, 99, 251);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    flex-flow: column nowrap;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+input {
+    width: 20vw;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.inputFields {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #000;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-end;
+    margin-top: 30%;
+}
+
+p, h1, label {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p, label, input {
+    font-size: 18px;
+}

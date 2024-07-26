@@ -5,7 +5,7 @@ const Calculator: React.FC = () => {
     // State variables for the input values
     let [name, setName] = useState("");
     let [humanAge, setHumanAge] = useState("");
-    
+
     // State variables to store the parsed human age and submitted name
     let [humanAgeInt, setHumanAgeInt] = useState<number | undefined>();
     let [submittedName, setSubmittedName] = useState("");
@@ -44,7 +44,7 @@ const Calculator: React.FC = () => {
     return (
         <div className={styles.calculator}>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className={styles.inputFields}>
                     <label htmlFor="name">Dog's Name: </label>
                     <input
                         type="text"
@@ -54,7 +54,7 @@ const Calculator: React.FC = () => {
                         placeholder="Enter Dog's Name Here... "
                     />
                 </div>
-                <div>
+                <div className={styles.inputFields}>
                     <label htmlFor="humanAge">Dog's Age in Human Years: </label>
                     <input
                         type="number"
